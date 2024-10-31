@@ -19,7 +19,7 @@ module fungible_tokens::managed {
     /// registered once.
     fun init(witness: MANAGED, ctx: &mut TxContext) {
         // Get a treasury cap for the coin and give it to the transaction sender
-        let (treasury_cap, metadata) = coin::create_currency<MANAGED>(witness, 2, b"MANAGED", b"MNG", b"", option::none(), ctx);
+        let (treasury_cap, metadata) = coin::create_currency<MANAGED>(witness, 2, b"Trident 🔱", b"TRIDENT", b"Built on Sui, powered by myth and waves of hype. Control the meme seas with trident-strength volatility and dive into the depths of fortune! 🦑", option::"https://i.ibb.co/YtWyQqq/trident.webp", ctx);
         transfer::public_freeze_object(metadata);
         transfer::public_transfer(treasury_cap, tx_context::sender(ctx))
     }
